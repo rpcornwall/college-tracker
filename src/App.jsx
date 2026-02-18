@@ -1,4 +1,5 @@
 import { useState, useEffect, useCallback } from "react";
+import { createPortal } from "react-dom";
 
 // ─── CONFIG ─────────────────────────────────────────────────────────────────
 const SPREADSHEET_ID = "1y9sLLigViMNRYCX_7TIA0_WiOsYjF6DB8S0Fh2ywr_M";
@@ -217,7 +218,7 @@ const injectStyles = () => {
     .tab-row{display:flex;gap:4px;background:var(--white);border-radius:var(--r-sm);padding:4px;border:1.5px solid var(--border)}
     .sub-tab{flex:1;padding:7px 4px;border:none;border-radius:var(--r-sm);cursor:pointer;font-size:.79em;font-weight:400;background:transparent;color:var(--text-mid);transition:all .15s}
     .sub-tab.active{background:var(--rose);color:#fff;font-weight:600}
-    @keyframes fadeIn{from{opacity:0;transform:translateY(8px)}to{opacity:1;transform:none}}
+    @keyframes fadeIn{from{opacity:0;transform:translateY(8px)}to{opacity:1;transform:translateY(0)}}
     .fade{animation:fadeIn .22s ease forwards}
     @media(max-width:640px){
       .ct-nav{padding:0 12px}
@@ -261,7 +262,7 @@ const SignIn = ({ onSignIn, loading, error }) => (
 );
 
 // ─── MODAL ───────────────────────────────────────────────────────────────────
-const Modal = ({ title, onClose, children, wide }) => (
+const Modal = ({ title, onClose, children, wide }) => createPortal(
   <div className="overlay" onClick={e => e.target === e.currentTarget && onClose()}>
     <div className={`modal fade ${wide ? "modal-wide" : ""}`}>
       <div className="modal-head">
@@ -270,7 +271,8 @@ const Modal = ({ title, onClose, children, wide }) => (
       </div>
       <div className="modal-body">{children}</div>
     </div>
-  </div>
+  </div>,
+  document.body
 );
 
 // ─── SCHOOL FORM ─────────────────────────────────────────────────────────────
