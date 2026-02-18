@@ -194,8 +194,8 @@ const injectStyles = () => {
     .ta{width:100%;padding:9px 12px;border:1.5px solid var(--border);border-radius:var(--r-sm);font-size:.9em;color:var(--text);background:var(--cream);outline:none;resize:vertical;min-height:80px}
     .ta:focus{border-color:var(--rose-mid)}
     .grid2{display:grid;grid-template-columns:1fr 1fr;gap:0 16px}
-    .overlay{position:fixed;inset:0;background:rgba(61,47,40,.5);z-index:200;display:flex;align-items:center;justify-content:center;padding:20px;backdrop-filter:blur(3px)}
-    .modal{background:var(--white);border-radius:var(--r-lg);width:100%;max-width:640px;max-height:90vh;overflow-y:auto;box-shadow:var(--shadow-lg)}
+    .overlay{position:fixed;inset:0;background:rgba(61,47,40,.5);z-index:200;display:flex;justify-content:center;overflow-y:auto;padding:20px;backdrop-filter:blur(3px)}
+    .modal{background:var(--white);border-radius:var(--r-lg);width:100%;max-width:640px;max-height:90vh;overflow-y:auto;box-shadow:var(--shadow-lg);margin:auto 0;flex-shrink:0}
     .modal-wide{max-width:780px}
     .modal-head{display:flex;justify-content:space-between;align-items:center;padding:18px 22px 14px;border-bottom:1.5px solid var(--border);position:sticky;top:0;background:var(--white);border-radius:var(--r-lg) var(--r-lg) 0 0;z-index:10}
     .modal-head h3{font-size:1.05em;color:var(--text)}
